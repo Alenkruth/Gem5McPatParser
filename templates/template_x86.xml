@@ -240,12 +240,16 @@
         <!-- there is no write requests to itlb although writes happen to itlb after miss, 
         which is actually a replacement -->
       </component>
-      <component id="system.core.icache" name="icache">
+      <!-- commented the classic cache stuff-->
+      <!--component id="system.core.icache" name="icache"-->
+      <component id="system.ruby.lO_cntrl0.Icache" name="Icache">
         <!-- there is no write requests to itlb although writes happen to it after miss, 
         which is actually a replacement -->
-        <param name="icache_config" value="config.system.cpu.icache.size,config.system.cpu.icache.tags.block_size,config.system.cpu.icache.assoc,1,1,config.system.cpu.icache.response_latency,config.system.cpu.icache.tags.block_size,0"/>
+        <!--param name="icache_config" value="config.system.cpu.icache.size,config.system.cpu.icache.tags.block_size,config.system.cpu.icache.assoc,1,1,config.system.cpu.icache.response_latency,config.system.cpu.icache.tags.block_size,0"/-->
+        <param name="icache_config" value="config.system.ruby.l0cntrl0.Icache.size,config.system.ruby.tags.block_size_bytes,config.system.ruby.l0cntrl0.Icache.assoc,1,1,lconfig.system.ruby.l0cntrl0.Icache.dataAccesslatency,config.system.ruby.tags.block_size_bytes,0"/>
         <!-- the parameters are capacity,block_width, associativity, bank, throughput w.r.t. core clock, latency w.r.t. core clock,output_width, cache policy,  -->
         <!-- cache_policy;//0 no write or write-though with non-write allocate;1 write-back with write-allocate -->
+        <!--param name="buffer_sizes" value="config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs"/ -->
         <param name="buffer_sizes" value="config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs"/>
         <!-- cache controller buffer sizes: miss_buffer_size(MSHR),fill_buffer_size,prefetch_buffer_size,wb_buffer_size-->
         <stat name="read_accesses" value="stats.system.cpu.icache.ReadReq_accesses::total"/>
