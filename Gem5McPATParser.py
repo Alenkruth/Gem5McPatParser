@@ -294,11 +294,11 @@ def dumpMcpatOut(outFile):
     # replace params with values from the GEM5 config file
 
     for param in rootElem.iter('param'):
-        print(param)
+        #print(param)
         name = param.attrib['name']
         value = param.attrib['value']
-        print(name)
-        print(value)
+        #print(name)
+        #print(value)
         # if there is a config in this attrib
         if 'config' in value:
             allConfs = configMatch.findall(value)
